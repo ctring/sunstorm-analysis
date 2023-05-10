@@ -1,0 +1,578 @@
+[INFO ] 2023-05-02 23:12:58,996 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:              HOT {com.oltpbenchmark.benchmarks.hot.HOTBenchmark}
+Configuration:          /hot-config.xml
+Type:                   POSTGRES
+Driver:                 org.postgresql.Driver
+URL:                    jdbc:postgresql://compute-r1:55432/postgres?sslmode=disable&ApplicationName=ycsb&reWriteBatchedInserts=true
+Isolation:              TRANSACTION_SERIALIZABLE
+Batch Size:             128
+Scale Factor:           30.0
+Terminals:              32
+New Connection Per Txn: false
+
+[INFO ] 2023-05-02 23:12:58,997 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2023-05-02 23:12:59,213 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 32 virtual terminals...
+[INFO ] 2023-05-02 23:12:59,236 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [0, 10000)
+[INFO ] 2023-05-02 23:12:59,236 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [10000, 20000)
+[INFO ] 2023-05-02 23:12:59,236 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [20000, 30000)
+[INFO ] 2023-05-02 23:12:59,633 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the HOT Benchmark with 1 Phase...
+[INFO ] 2023-05-02 23:12:59,663 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=HOT] [Serial=false] [Time=120] [WarmupTime=0] [Rate=10000] [Arrival=REGULAR] [Ratios=[100.0, 0.0]] [ActiveWorkers=32]
+[INFO ] 2023-05-02 23:12:59,663 [Thread-32]  com.oltpbenchmark.ThreadBench run - Starting MonitorThread Interval [1000ms]
+[INFO ] 2023-05-02 23:12:59,665 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mMEASURE[0;0m :: Warmup complete, starting measurements.
+[INFO ] 2023-05-02 23:13:00,664 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1929.0 txn/sec
+[INFO ] 2023-05-02 23:13:01,664 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2276.0 txn/sec
+[INFO ] 2023-05-02 23:13:02,665 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2355.0 txn/sec
+[INFO ] 2023-05-02 23:13:03,665 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 879.0 txn/sec
+[WARN ] 2023-05-02 23:13:03,796 [HOTWorker<021>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 675 waits for ShareLock on transaction 2724831; blocked by process 655; is_remote: false.
+Process 655 waits for ShareLock on transaction 2724821; blocked by process 675; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (253,75) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:04,665 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1849.0 txn/sec
+[WARN ] 2023-05-02 23:13:05,127 [HOTWorker<001>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 655 waits for ShareLock on transaction 2726413; blocked by process 673; is_remote: false.
+Process 673 waits for ShareLock on transaction 2726411; blocked by process 655; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (316,21) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:05,666 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1628.0 txn/sec
+[INFO ] 2023-05-02 23:13:06,666 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2253.0 txn/sec
+[INFO ] 2023-05-02 23:13:07,667 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2376.0 txn/sec
+[INFO ] 2023-05-02 23:13:08,667 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2313.0 txn/sec
+[INFO ] 2023-05-02 23:13:09,668 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2377.0 txn/sec
+[INFO ] 2023-05-02 23:13:10,668 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2339.0 txn/sec
+[INFO ] 2023-05-02 23:13:11,668 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2384.0 txn/sec
+[INFO ] 2023-05-02 23:13:12,669 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2241.0 txn/sec
+[WARN ] 2023-05-02 23:13:13,135 [HOTWorker<000>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 654 waits for ShareLock on transaction 2748222; blocked by process 662; is_remote: false.
+Process 662 waits for ShareLock on transaction 2748212; blocked by process 654; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (258,78) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:13,669 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1682.0 txn/sec
+[INFO ] 2023-05-02 23:13:14,672 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2316.0 txn/sec
+[INFO ] 2023-05-02 23:13:15,673 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2215.0 txn/sec
+[INFO ] 2023-05-02 23:13:16,673 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1995.0 txn/sec
+[WARN ] 2023-05-02 23:13:17,252 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 671 waits for ShareLock on transaction 2758756; blocked by process 673; is_remote: false.
+Process 673 waits for ShareLock on transaction 2758765; blocked by process 671; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (308,89) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:17,674 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1207.0 txn/sec
+[INFO ] 2023-05-02 23:13:18,674 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2295.0 txn/sec
+[INFO ] 2023-05-02 23:13:19,674 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2331.0 txn/sec
+[INFO ] 2023-05-02 23:13:20,675 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2379.0 txn/sec
+[INFO ] 2023-05-02 23:13:21,675 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2339.0 txn/sec
+[INFO ] 2023-05-02 23:13:22,675 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2329.0 txn/sec
+[INFO ] 2023-05-02 23:13:23,676 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2389.0 txn/sec
+[INFO ] 2023-05-02 23:13:24,676 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2284.0 txn/sec
+[INFO ] 2023-05-02 23:13:25,677 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2373.0 txn/sec
+[INFO ] 2023-05-02 23:13:26,677 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2384.0 txn/sec
+[INFO ] 2023-05-02 23:13:27,677 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2351.0 txn/sec
+[INFO ] 2023-05-02 23:13:28,678 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2353.0 txn/sec
+[WARN ] 2023-05-02 23:13:29,643 [HOTWorker<013>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 667 waits for ShareLock on transaction 2792474; blocked by process 680; is_remote: false.
+Process 680 waits for ShareLock on transaction 2792471; blocked by process 667; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (297,67) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:29,678 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 704.0 txn/sec
+[INFO ] 2023-05-02 23:13:30,678 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2324.0 txn/sec
+[INFO ] 2023-05-02 23:13:31,679 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2358.0 txn/sec
+[WARN ] 2023-05-02 23:13:32,634 [HOTWorker<018>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 672 waits for ShareLock on transaction 2799003; blocked by process 668; is_remote: false.
+Process 668 waits for ShareLock on transaction 2798998; blocked by process 672; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (299,63) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:32,679 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 934.0 txn/sec
+[INFO ] 2023-05-02 23:13:33,680 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2392.0 txn/sec
+[INFO ] 2023-05-02 23:13:34,680 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2284.0 txn/sec
+[INFO ] 2023-05-02 23:13:35,680 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2382.0 txn/sec
+[INFO ] 2023-05-02 23:13:36,681 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1525.0 txn/sec
+[WARN ] 2023-05-02 23:13:36,966 [HOTWorker<013>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 667 waits for ShareLock on transaction 2809620; blocked by process 654; is_remote: false.
+Process 654 waits for ShareLock on transaction 2809619; blocked by process 667; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (338,68) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:37,681 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1641.0 txn/sec
+[INFO ] 2023-05-02 23:13:38,682 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 994.0 txn/sec
+[WARN ] 2023-05-02 23:13:38,915 [HOTWorker<030>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 684 waits for ShareLock on transaction 2813248; blocked by process 682; is_remote: false.
+Process 682 waits for ShareLock on transaction 2813252; blocked by process 684; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (363,2) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:39,682 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1809.0 txn/sec
+[INFO ] 2023-05-02 23:13:40,682 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2369.0 txn/sec
+[INFO ] 2023-05-02 23:13:41,683 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1728.0 txn/sec
+[WARN ] 2023-05-02 23:13:42,033 [HOTWorker<028>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 682 waits for ShareLock on transaction 2819889; blocked by process 677; is_remote: false.
+Process 677 waits for ShareLock on transaction 2819886; blocked by process 682; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (3,115) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:42,683 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1518.0 txn/sec
+[INFO ] 2023-05-02 23:13:43,683 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2390.0 txn/sec
+[WARN ] 2023-05-02 23:13:44,619 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 662 waits for ShareLock on transaction 2825499; blocked by process 663; is_remote: false.
+Process 663 waits for ShareLock on transaction 2825497; blocked by process 662; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (243,49) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:44,684 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 878.0 txn/sec
+[INFO ] 2023-05-02 23:13:45,684 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2139.0 txn/sec
+[INFO ] 2023-05-02 23:13:46,684 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2220.0 txn/sec
+[INFO ] 2023-05-02 23:13:47,685 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2359.0 txn/sec
+[INFO ] 2023-05-02 23:13:48,685 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2335.0 txn/sec
+[INFO ] 2023-05-02 23:13:49,685 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2237.0 txn/sec
+[WARN ] 2023-05-02 23:13:50,477 [HOTWorker<020>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 674 waits for ShareLock on transaction 2840015; blocked by process 665; is_remote: false.
+Process 665 waits for ShareLock on transaction 2839992; blocked by process 674; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (264,53) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:50,686 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 903.0 txn/sec
+[INFO ] 2023-05-02 23:13:51,686 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2383.0 txn/sec
+[INFO ] 2023-05-02 23:13:52,686 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2361.0 txn/sec
+[INFO ] 2023-05-02 23:13:53,687 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2363.0 txn/sec
+[INFO ] 2023-05-02 23:13:54,687 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1096.0 txn/sec
+[WARN ] 2023-05-02 23:13:54,863 [HOTWorker<014>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 668 waits for ShareLock on transaction 2850755; blocked by process 662; is_remote: false.
+Process 662 waits for ShareLock on transaction 2850752; blocked by process 668; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (279,11) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:13:55,687 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1924.0 txn/sec
+[INFO ] 2023-05-02 23:13:56,688 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2254.0 txn/sec
+[INFO ] 2023-05-02 23:13:57,688 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2341.0 txn/sec
+[INFO ] 2023-05-02 23:13:58,689 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2354.0 txn/sec
+[INFO ] 2023-05-02 23:13:59,689 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2382.0 txn/sec
+[INFO ] 2023-05-02 23:14:00,690 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2371.0 txn/sec
+[INFO ] 2023-05-02 23:14:01,690 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2349.0 txn/sec
+[INFO ] 2023-05-02 23:14:02,690 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2338.0 txn/sec
+[INFO ] 2023-05-02 23:14:03,691 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2364.0 txn/sec
+[INFO ] 2023-05-02 23:14:04,691 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2185.0 txn/sec
+[INFO ] 2023-05-02 23:14:05,691 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2393.0 txn/sec
+[INFO ] 2023-05-02 23:14:06,692 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2361.0 txn/sec
+[INFO ] 2023-05-02 23:14:07,692 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2364.0 txn/sec
+[INFO ] 2023-05-02 23:14:08,695 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2269.0 txn/sec
+[INFO ] 2023-05-02 23:14:09,695 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2314.0 txn/sec
+[INFO ] 2023-05-02 23:14:10,696 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2280.0 txn/sec
+[INFO ] 2023-05-02 23:14:11,696 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2275.0 txn/sec
+[INFO ] 2023-05-02 23:14:12,696 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2405.0 txn/sec
+[INFO ] 2023-05-02 23:14:13,697 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2297.0 txn/sec
+[INFO ] 2023-05-02 23:14:14,697 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2320.0 txn/sec
+[INFO ] 2023-05-02 23:14:15,697 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2195.0 txn/sec
+[INFO ] 2023-05-02 23:14:16,698 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1786.0 txn/sec
+[INFO ] 2023-05-02 23:14:17,698 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 580.0 txn/sec
+[INFO ] 2023-05-02 23:14:18,698 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 696.0 txn/sec
+[INFO ] 2023-05-02 23:14:19,699 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1515.0 txn/sec
+[INFO ] 2023-05-02 23:14:20,699 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1818.0 txn/sec
+[INFO ] 2023-05-02 23:14:21,700 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 781.0 txn/sec
+[INFO ] 2023-05-02 23:14:22,700 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1520.0 txn/sec
+[WARN ] 2023-05-02 23:14:22,904 [HOTWorker<021>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 675 waits for ShareLock on transaction 2919536; blocked by process 656; is_remote: false.
+Process 656 waits for ShareLock on transaction 2919533; blocked by process 675; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (358,58) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:23,700 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1659.0 txn/sec
+[WARN ] 2023-05-02 23:14:24,069 [HOTWorker<019>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 673 waits for ShareLock on transaction 2921280; blocked by process 674; is_remote: false.
+Process 674 waits for ShareLock on transaction 2921278; blocked by process 673; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (349,35) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:24,700 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1647.0 txn/sec
+[INFO ] 2023-05-02 23:14:25,701 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2408.0 txn/sec
+[INFO ] 2023-05-02 23:14:26,701 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2289.0 txn/sec
+[INFO ] 2023-05-02 23:14:27,702 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2343.0 txn/sec
+[INFO ] 2023-05-02 23:14:28,702 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2390.0 txn/sec
+[INFO ] 2023-05-02 23:14:29,702 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2110.0 txn/sec
+[WARN ] 2023-05-02 23:14:30,247 [HOTWorker<014>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 668 waits for ShareLock on transaction 2937807; blocked by process 677; is_remote: false.
+Process 677 waits for ShareLock on transaction 2937803; blocked by process 668; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (304,78) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:30,703 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1242.0 txn/sec
+[INFO ] 2023-05-02 23:14:31,703 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2331.0 txn/sec
+[INFO ] 2023-05-02 23:14:32,703 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2306.0 txn/sec
+[INFO ] 2023-05-02 23:14:33,704 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1938.0 txn/sec
+[WARN ] 2023-05-02 23:14:34,215 [HOTWorker<018>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 672 waits for ShareLock on transaction 2947209; blocked by process 685; is_remote: false.
+Process 685 waits for ShareLock on transaction 2947219; blocked by process 672; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (233,80) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:34,704 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 882.0 txn/sec
+[WARN ] 2023-05-02 23:14:35,254 [HOTWorker<012>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 666 waits for ShareLock on transaction 2948340; blocked by process 681; is_remote: false.
+Process 681 waits for ShareLock on transaction 2948336; blocked by process 666; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (259,39) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:35,704 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1160.0 txn/sec
+[INFO ] 2023-05-02 23:14:36,705 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2266.0 txn/sec
+[WARN ] 2023-05-02 23:14:37,691 [HOTWorker<027>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 681 waits for ShareLock on transaction 2953401; blocked by process 660; is_remote: false.
+Process 660 waits for ShareLock on transaction 2953391; blocked by process 681; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (281,74) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:37,705 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 623.0 txn/sec
+[INFO ] 2023-05-02 23:14:38,705 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2160.0 txn/sec
+[WARN ] 2023-05-02 23:14:39,346 [HOTWorker<018>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 672 waits for ShareLock on transaction 2956024; blocked by process 661; is_remote: false.
+Process 661 waits for ShareLock on transaction 2956030; blocked by process 672; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (118,66) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:39,706 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1003.0 txn/sec
+[INFO ] 2023-05-02 23:14:40,706 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2358.0 txn/sec
+[INFO ] 2023-05-02 23:14:41,706 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2250.0 txn/sec
+[INFO ] 2023-05-02 23:14:42,706 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1807.0 txn/sec
+[WARN ] 2023-05-02 23:14:43,109 [HOTWorker<015>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 669 waits for ShareLock on transaction 2964703; blocked by process 666; is_remote: false.
+Process 666 waits for ShareLock on transaction 2964707; blocked by process 669; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (46,85) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:43,707 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 292.0 txn/sec
+[INFO ] 2023-05-02 23:14:44,707 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2261.0 txn/sec
+[INFO ] 2023-05-02 23:14:45,707 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2365.0 txn/sec
+[INFO ] 2023-05-02 23:14:46,708 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2356.0 txn/sec
+[INFO ] 2023-05-02 23:14:47,708 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2255.0 txn/sec
+[INFO ] 2023-05-02 23:14:48,708 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2397.0 txn/sec
+[INFO ] 2023-05-02 23:14:49,709 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2304.0 txn/sec
+[INFO ] 2023-05-02 23:14:50,709 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2204.0 txn/sec
+[INFO ] 2023-05-02 23:14:51,709 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2304.0 txn/sec
+[INFO ] 2023-05-02 23:14:52,710 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2373.0 txn/sec
+[INFO ] 2023-05-02 23:14:53,710 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2365.0 txn/sec
+[INFO ] 2023-05-02 23:14:54,710 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2389.0 txn/sec
+[INFO ] 2023-05-02 23:14:55,711 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2365.0 txn/sec
+[INFO ] 2023-05-02 23:14:56,711 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2222.0 txn/sec
+[INFO ] 2023-05-02 23:14:57,711 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2230.0 txn/sec
+[INFO ] 2023-05-02 23:14:58,712 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2314.0 txn/sec
+[INFO ] 2023-05-02 23:14:59,666 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mTERMINATE[0;0m :: Waiting for all terminals to finish ..
+[INFO ] 2023-05-02 23:14:59,712 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 902.0 txn/sec
+[WARN ] 2023-05-02 23:14:59,787 [HOTWorker<003>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 657 waits for ShareLock on transaction 3008545; blocked by process 663; is_remote: false.
+Process 663 waits for ShareLock on transaction 3008536; blocked by process 657; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (183,112) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 23:14:59,811 [Thread-33]  com.oltpbenchmark.ThreadBench run - Starting WatchDogThread
+[INFO ] 2023-05-02 23:14:59,977 [main]  com.oltpbenchmark.DBWorkload runWorkload - ======================================================================
+[INFO ] 2023-05-02 23:14:59,977 [main]  com.oltpbenchmark.DBWorkload runWorkload - Rate limited reqs/s: Results(nanoSeconds=120000959513, measuredRequests=241148) = 2009.5505984173055 requests/sec (throughput), 1996.3257041627887 requests/sec (goodput)
+[INFO ] 2023-05-02 23:15:00,043 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output Raw data into file: hot_2023-05-02_23-15-00.raw.csv
+[INFO ] 2023-05-02 23:15:00,713 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[INFO ] 2023-05-02 23:15:00,958 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output samples into file: hot_2023-05-02_23-15-00.samples.csv
+[INFO ] 2023-05-02 23:15:01,070 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output summary data into file: hot_2023-05-02_23-15-00.summary.json
+[INFO ] 2023-05-02 23:15:01,079 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS parameters into file: hot_2023-05-02_23-15-00.params.json
+[INFO ] 2023-05-02 23:15:01,087 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS metrics into file: hot_2023-05-02_23-15-00.metrics.json
+[INFO ] 2023-05-02 23:15:01,092 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output benchmark config into file: hot_2023-05-02_23-15-00.config.xml
+[INFO ] 2023-05-02 23:15:01,146 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output results into file: hot_2023-05-02_23-15-00.results.csv with window size 5
+[INFO ] 2023-05-02 23:15:01,338 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================
+[INFO ] 2023-05-02 23:15:01,338 [main]  com.oltpbenchmark.DBWorkload writeHistograms - Workload Histograms:
+
+[0;1mCompleted Transactions:[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [239561] ********************************************************************************
+com.oltpbenchmark.benchmarks.hot.procedures.RMWLocalRORemote/02                  [     0] 
+
+[0;1mAborted Transactions:[0;0m
+<EMPTY>
+
+[0;1mRejected Transactions (Server Retry):[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [53354] ********************************************************************************
+
+[0;1mRejected Transactions (Retry Different):[0;0m
+<EMPTY>
+
+[0;1mUnexpected SQL Errors:[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [  21] ********************************************************************************
+
+[0;1mUnknown Status Transactions:[0;0m
+<EMPTY>
+
+
+[INFO ] 2023-05-02 23:15:01,338 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================
+[INFO ] 2023-05-02 23:15:01,340 [main]  com.oltpbenchmark.DBWorkload main - Histograms JSON Data: results/histograms.json

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+  <isolation>TRANSACTION_SERIALIZABLE</isolation>
+  <batchsize>128</batchsize>
+  <ddlpath>/hot-ddl.sql</ddlpath>
+  <scalefactor>30</scalefactor>
+  <fieldSize>8</fieldSize>
+  <hot>1</hot>
+  <region>3</region>
+  <mrpct>10</mrpct>
+  <terminals>32</terminals>
+  <works>
+    <work>
+      <time>120</time>
+      <rate>10000</rate>
+      <weights>100,0</weights>
+    </work>
+  </works>
+  <transactiontypes>
+    <transactiontype>
+      <name>ReadModifyWrite</name>
+    </transactiontype>
+    <transactiontype>
+      <name>RMWLocalRORemote</name>
+    </transactiontype>
+  </transactiontypes>
+</configuration>

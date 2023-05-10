@@ -1,0 +1,1667 @@
+[INFO ] 2023-05-09 18:54:12,217 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:              HOT {com.oltpbenchmark.benchmarks.hot.HOTBenchmark}
+Configuration:          /hot-config.xml
+Type:                   POSTGRES
+Driver:                 org.postgresql.Driver
+URL:                    jdbc:postgresql://compute-r2:55432/postgres?sslmode=disable&ApplicationName=ycsb&reWriteBatchedInserts=true
+Isolation:              TRANSACTION_SERIALIZABLE
+Batch Size:             128
+Scale Factor:           30.0
+Terminals:              32
+New Connection Per Txn: false
+
+[INFO ] 2023-05-09 18:54:12,219 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2023-05-09 18:54:12,451 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 32 virtual terminals...
+[INFO ] 2023-05-09 18:54:12,472 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [0, 10000)
+[INFO ] 2023-05-09 18:54:12,473 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [10000, 20000)
+[INFO ] 2023-05-09 18:54:12,473 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [20000, 30000)
+[INFO ] 2023-05-09 18:54:12,802 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the HOT Benchmark with 1 Phase...
+[INFO ] 2023-05-09 18:54:12,834 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=HOT] [Serial=false] [Time=120] [WarmupTime=0] [Rate=10000] [Arrival=REGULAR] [Ratios=[100.0, 0.0]] [ActiveWorkers=32]
+[INFO ] 2023-05-09 18:54:12,836 [Thread-32]  com.oltpbenchmark.ThreadBench run - Starting MonitorThread Interval [1000ms]
+[INFO ] 2023-05-09 18:54:12,842 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mMEASURE[0;0m :: Warmup complete, starting measurements.
+[WARN ] 2023-05-09 18:54:13,125 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:13,836 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 237.0 txn/sec
+[WARN ] 2023-05-09 18:54:14,176 [HOTWorker<031>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:14,219 [HOTWorker<007>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:14,836 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 72.0 txn/sec
+[INFO ] 2023-05-09 18:54:15,837 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 13.0 txn/sec
+[WARN ] 2023-05-09 18:54:16,253 [HOTWorker<021>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:16,837 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 12.0 txn/sec
+[INFO ] 2023-05-09 18:54:17,837 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 9.0 txn/sec
+[INFO ] 2023-05-09 18:54:18,838 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:19,294 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:19,838 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 31.0 txn/sec
+[WARN ] 2023-05-09 18:54:20,340 [HOTWorker<028>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:20,838 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:54:21,839 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:22,345 [HOTWorker<024>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:22,366 [HOTWorker<020>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:22,839 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 99.0 txn/sec
+[INFO ] 2023-05-09 18:54:23,839 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 56.0 txn/sec
+[WARN ] 2023-05-09 18:54:24,466 [HOTWorker<011>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:24,483 [HOTWorker<024>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:24,840 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 44.0 txn/sec
+[INFO ] 2023-05-09 18:54:25,840 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 21.0 txn/sec
+[WARN ] 2023-05-09 18:54:26,517 [HOTWorker<000>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:26,532 [HOTWorker<011>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:26,541 [HOTWorker<010>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:26,840 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 31.0 txn/sec
+[INFO ] 2023-05-09 18:54:27,841 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:28,553 [HOTWorker<023>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:28,841 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 43.0 txn/sec
+[WARN ] 2023-05-09 18:54:29,601 [HOTWorker<027>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:29,841 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:54:30,608 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:30,841 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 52.0 txn/sec
+[INFO ] 2023-05-09 18:54:31,842 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 35.0 txn/sec
+[WARN ] 2023-05-09 18:54:32,656 [HOTWorker<018>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:32,842 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:54:33,704 [HOTWorker<025>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:33,712 [HOTWorker<010>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:33,842 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 9.0 txn/sec
+[INFO ] 2023-05-09 18:54:34,843 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 12.0 txn/sec
+[WARN ] 2023-05-09 18:54:35,739 [HOTWorker<001>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:35,843 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 49.0 txn/sec
+[INFO ] 2023-05-09 18:54:36,843 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:37,752 [HOTWorker<015>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:37,844 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 69.0 txn/sec
+[INFO ] 2023-05-09 18:54:38,844 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:39,802 [HOTWorker<021>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:39,832 [HOTWorker<004>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:39,844 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 50.0 txn/sec
+[WARN ] 2023-05-09 18:54:39,858 [HOTWorker<020>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:40,845 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 15.0 txn/sec
+[WARN ] 2023-05-09 18:54:40,867 [HOTWorker<007>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:41,845 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 54.0 txn/sec
+[WARN ] 2023-05-09 18:54:41,912 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:42,845 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 16.0 txn/sec
+[WARN ] 2023-05-09 18:54:42,930 [HOTWorker<001>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:42,951 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:43,845 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 20.0 txn/sec
+[WARN ] 2023-05-09 18:54:43,958 [HOTWorker<010>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:44,846 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:54:45,846 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:45,963 [HOTWorker<012>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:46,846 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 25.0 txn/sec
+[WARN ] 2023-05-09 18:54:46,990 [HOTWorker<004>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:46,999 [HOTWorker<009>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:47,021 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:47,847 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 35.0 txn/sec
+[INFO ] 2023-05-09 18:54:48,847 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:49,028 [HOTWorker<002>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:49,847 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:54:50,848 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:54:51,033 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:51,075 [HOTWorker<016>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:51,848 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 14.0 txn/sec
+[WARN ] 2023-05-09 18:54:52,105 [HOTWorker<006>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:52,848 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 47.0 txn/sec
+[WARN ] 2023-05-09 18:54:53,139 [HOTWorker<023>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:53,848 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:54:54,146 [HOTWorker<028>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:54,849 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 10.0 txn/sec
+[WARN ] 2023-05-09 18:54:55,160 [HOTWorker<010>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:55,849 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 79.0 txn/sec
+[WARN ] 2023-05-09 18:54:56,206 [HOTWorker<000>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:56,849 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 14.0 txn/sec
+[WARN ] 2023-05-09 18:54:57,225 [HOTWorker<024>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:57,850 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 10.0 txn/sec
+[WARN ] 2023-05-09 18:54:58,246 [HOTWorker<031>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:58,850 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:54:59,255 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:54:59,295 [HOTWorker<026>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:54:59,850 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 29.0 txn/sec
+[WARN ] 2023-05-09 18:55:00,303 [HOTWorker<016>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:00,850 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:55:01,311 [HOTWorker<013>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:01,338 [HOTWorker<018>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:01,851 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 92.0 txn/sec
+[INFO ] 2023-05-09 18:55:02,851 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 40.0 txn/sec
+[WARN ] 2023-05-09 18:55:03,414 [HOTWorker<006>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:03,851 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:55:04,422 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:04,851 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:55:05,467 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date index data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:05,852 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 56.0 txn/sec
+[WARN ] 2023-05-09 18:55:06,519 [HOTWorker<001>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:06,852 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 74.0 txn/sec
+[INFO ] 2023-05-09 18:55:07,852 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:08,532 [HOTWorker<006>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:08,852 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:55:09,540 [HOTWorker<020>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:09,557 [HOTWorker<009>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:09,577 [HOTWorker<025>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:09,853 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 115.0 txn/sec
+[WARN ] 2023-05-09 18:55:10,630 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:10,853 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 23.0 txn/sec
+[WARN ] 2023-05-09 18:55:11,665 [HOTWorker<001>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:11,853 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 13.0 txn/sec
+[INFO ] 2023-05-09 18:55:12,853 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:13,680 [HOTWorker<014>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:13,854 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 19.0 txn/sec
+[WARN ] 2023-05-09 18:55:14,711 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:14,854 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 10.0 txn/sec
+[WARN ] 2023-05-09 18:55:15,725 [HOTWorker<010>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:15,739 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date index data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:15,752 [HOTWorker<002>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:15,854 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 26.0 txn/sec
+[INFO ] 2023-05-09 18:55:16,855 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:17,759 [HOTWorker<028>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:17,855 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:55:18,855 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:19,768 [HOTWorker<030>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:19,855 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:55:20,777 [HOTWorker<020>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:20,856 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:55:21,785 [HOTWorker<031>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:21,856 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 23.0 txn/sec
+[WARN ] 2023-05-09 18:55:22,804 [HOTWorker<007>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:22,856 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 58.0 txn/sec
+[WARN ] 2023-05-09 18:55:23,854 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:23,856 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:55:24,857 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[INFO ] 2023-05-09 18:55:25,857 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:25,857 [HOTWorker<015>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:25,888 [HOTWorker<023>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:26,857 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 35.0 txn/sec
+[WARN ] 2023-05-09 18:55:26,954 [HOTWorker<010>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:27,857 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 28.0 txn/sec
+[WARN ] 2023-05-09 18:55:27,977 [HOTWorker<005>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:27,986 [HOTWorker<004>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:28,858 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2.0 txn/sec
+[WARN ] 2023-05-09 18:55:28,994 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:29,858 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:55:30,002 [HOTWorker<016>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:30,016 [HOTWorker<026>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:30,858 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 14.0 txn/sec
+[INFO ] 2023-05-09 18:55:31,859 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:32,021 [HOTWorker<013>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:32,037 [HOTWorker<012>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:32,859 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 29.0 txn/sec
+[WARN ] 2023-05-09 18:55:33,052 [HOTWorker<030>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:33,859 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 16.0 txn/sec
+[WARN ] 2023-05-09 18:55:34,066 [HOTWorker<000>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:34,080 [HOTWorker<024>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:34,859 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 6.0 txn/sec
+[INFO ] 2023-05-09 18:55:35,860 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:36,098 [HOTWorker<011>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:36,860 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 63.0 txn/sec
+[WARN ] 2023-05-09 18:55:37,143 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:37,152 [HOTWorker<028>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:37,161 [HOTWorker<012>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:37,860 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 8.0 txn/sec
+[INFO ] 2023-05-09 18:55:38,861 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 66.0 txn/sec
+[WARN ] 2023-05-09 18:55:39,214 [HOTWorker<009>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:39,248 [HOTWorker<000>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:39,861 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 82.0 txn/sec
+[INFO ] 2023-05-09 18:55:40,861 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:41,256 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:41,266 [HOTWorker<028>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:41,274 [HOTWorker<011>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:41,301 [HOTWorker<024>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:41,310 [HOTWorker<004>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:41,861 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 47.0 txn/sec
+[WARN ] 2023-05-09 18:55:42,318 [HOTWorker<009>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:42,332 [HOTWorker<031>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:42,862 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 11.0 txn/sec
+[WARN ] 2023-05-09 18:55:43,340 [HOTWorker<014>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:43,862 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:55:44,862 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 8.0 txn/sec
+[WARN ] 2023-05-09 18:55:45,356 [HOTWorker<005>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:45,862 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 44.0 txn/sec
+[WARN ] 2023-05-09 18:55:46,406 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:46,863 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 35.0 txn/sec
+[WARN ] 2023-05-09 18:55:47,415 [HOTWorker<016>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:47,863 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 28.0 txn/sec
+[WARN ] 2023-05-09 18:55:48,438 [HOTWorker<010>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:48,863 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:55:49,864 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:50,445 [HOTWorker<022>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:50,864 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:55:51,864 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:52,451 [HOTWorker<024>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:52,864 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:55:53,865 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:54,455 [HOTWorker<025>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:54,865 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:55:55,865 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 50.0 txn/sec
+[WARN ] 2023-05-09 18:55:56,505 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:56,865 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 10.0 txn/sec
+[WARN ] 2023-05-09 18:55:57,524 [HOTWorker<014>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:57,539 [HOTWorker<002>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:55:57,548 [HOTWorker<018>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:57,866 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 13.0 txn/sec
+[INFO ] 2023-05-09 18:55:58,866 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:55:59,555 [HOTWorker<020>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:55:59,866 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:56:00,564 [HOTWorker<015>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:00,866 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 14.0 txn/sec
+[WARN ] 2023-05-09 18:56:01,578 [HOTWorker<026>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:01,867 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 42.0 txn/sec
+[WARN ] 2023-05-09 18:56:02,617 [HOTWorker<023>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:56:02,631 [HOTWorker<006>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:02,867 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 15.0 txn/sec
+[INFO ] 2023-05-09 18:56:03,867 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:56:04,635 [HOTWorker<014>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:56:04,645 [HOTWorker<018>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:56:04,666 [HOTWorker<001>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:04,868 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 48.0 txn/sec
+[WARN ] 2023-05-09 18:56:05,680 [HOTWorker<004>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:05,868 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[INFO ] 2023-05-09 18:56:06,868 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[WARN ] 2023-05-09 18:56:07,687 [HOTWorker<017>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:07,868 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1.0 txn/sec
+[WARN ] 2023-05-09 18:56:08,695 [HOTWorker<007>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:56:08,714 [HOTWorker<024>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:08,869 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 23.0 txn/sec
+[WARN ] 2023-05-09 18:56:09,735 [HOTWorker<005>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:56:09,757 [HOTWorker<029>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:09,869 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 36.0 txn/sec
+[WARN ] 2023-05-09 18:56:10,765 [HOTWorker<000>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2023-05-09 18:56:10,775 [HOTWorker<027>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40003], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 3: "ERROR: [remotexact] read out-of-date tuple data from a remote partition."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:10,869 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 76.0 txn/sec
+[INFO ] 2023-05-09 18:56:11,869 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 21.0 txn/sec
+[INFO ] 2023-05-09 18:56:12,843 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mTERMINATE[0;0m :: Waiting for all terminals to finish ..
+[WARN ] 2023-05-09 18:56:12,846 [HOTWorker<009>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: [remotexact] validation failed during commit
+  Detail: Region 1: "ERROR: deadlock detected.HINT:  See server log for query details."
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327)
+	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965)
+	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:426)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-09 18:56:12,870 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[INFO ] 2023-05-09 18:56:13,862 [Thread-33]  com.oltpbenchmark.ThreadBench run - Starting WatchDogThread
+[INFO ] 2023-05-09 18:56:13,869 [main]  com.oltpbenchmark.DBWorkload runWorkload - ======================================================================
+[INFO ] 2023-05-09 18:56:13,869 [main]  com.oltpbenchmark.DBWorkload runWorkload - Rate limited reqs/s: Results(nanoSeconds=120000213283, measuredRequests=2755) = 22.95829252822079 requests/sec (throughput), 1.7666635266725252 requests/sec (goodput)
+[INFO ] 2023-05-09 18:56:13,870 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[INFO ] 2023-05-09 18:56:13,922 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output Raw data into file: hot_2023-05-09_18-56-13.raw.csv
+[INFO ] 2023-05-09 18:56:13,963 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output samples into file: hot_2023-05-09_18-56-13.samples.csv
+[INFO ] 2023-05-09 18:56:13,979 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output summary data into file: hot_2023-05-09_18-56-13.summary.json
+[INFO ] 2023-05-09 18:56:13,986 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS parameters into file: hot_2023-05-09_18-56-13.params.json
+[INFO ] 2023-05-09 18:56:13,993 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS metrics into file: hot_2023-05-09_18-56-13.metrics.json
+[INFO ] 2023-05-09 18:56:13,998 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output benchmark config into file: hot_2023-05-09_18-56-13.config.xml
+[INFO ] 2023-05-09 18:56:14,040 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output results into file: hot_2023-05-09_18-56-13.results.csv with window size 5
+[INFO ] 2023-05-09 18:56:14,054 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================
+[INFO ] 2023-05-09 18:56:14,054 [main]  com.oltpbenchmark.DBWorkload writeHistograms - Workload Histograms:
+
+[0;1mCompleted Transactions:[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [ 212] ********************************************************************************
+com.oltpbenchmark.benchmarks.hot.procedures.RMWLocalRORemote/02                  [   0] 
+
+[0;1mAborted Transactions:[0;0m
+<EMPTY>
+
+[0;1mRejected Transactions (Server Retry):[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [7527] ********************************************************************************
+
+[0;1mRejected Transactions (Retry Different):[0;0m
+<EMPTY>
+
+[0;1mUnexpected SQL Errors:[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [ 124] ********************************************************************************
+
+[0;1mUnknown Status Transactions:[0;0m
+<EMPTY>
+
+
+[INFO ] 2023-05-09 18:56:14,054 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================
+[INFO ] 2023-05-09 18:56:14,056 [main]  com.oltpbenchmark.DBWorkload main - Histograms JSON Data: results/histograms.json

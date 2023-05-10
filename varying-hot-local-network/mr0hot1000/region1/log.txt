@@ -1,0 +1,236 @@
+[INFO ] 2023-05-02 21:29:48,825 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:              HOT {com.oltpbenchmark.benchmarks.hot.HOTBenchmark}
+Configuration:          /hot-config.xml
+Type:                   POSTGRES
+Driver:                 org.postgresql.Driver
+URL:                    jdbc:postgresql://compute-r1:55432/postgres?sslmode=disable&ApplicationName=ycsb&reWriteBatchedInserts=true
+Isolation:              TRANSACTION_SERIALIZABLE
+Batch Size:             128
+Scale Factor:           30.0
+Terminals:              32
+New Connection Per Txn: false
+
+[INFO ] 2023-05-02 21:29:48,826 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2023-05-02 21:29:49,036 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 32 virtual terminals...
+[INFO ] 2023-05-02 21:29:49,059 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [0, 10000)
+[INFO ] 2023-05-02 21:29:49,059 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [10000, 20000)
+[INFO ] 2023-05-02 21:29:49,059 [main]  com.oltpbenchmark.benchmarks.hot.HOTBenchmark makeWorkersImpl - [20000, 30000)
+[INFO ] 2023-05-02 21:29:49,465 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the HOT Benchmark with 1 Phase...
+[INFO ] 2023-05-02 21:29:49,494 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=HOT] [Serial=false] [Time=120] [WarmupTime=0] [Rate=10000] [Arrival=REGULAR] [Ratios=[100.0, 0.0]] [ActiveWorkers=32]
+[INFO ] 2023-05-02 21:29:49,496 [Thread-32]  com.oltpbenchmark.ThreadBench run - Starting MonitorThread Interval [1000ms]
+[INFO ] 2023-05-02 21:29:49,501 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mMEASURE[0;0m :: Warmup complete, starting measurements.
+[INFO ] 2023-05-02 21:29:50,496 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2084.0 txn/sec
+[INFO ] 2023-05-02 21:29:51,497 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2300.0 txn/sec
+[INFO ] 2023-05-02 21:29:52,497 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2424.0 txn/sec
+[INFO ] 2023-05-02 21:29:53,497 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2513.0 txn/sec
+[INFO ] 2023-05-02 21:29:54,498 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2479.0 txn/sec
+[INFO ] 2023-05-02 21:29:55,498 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2497.0 txn/sec
+[INFO ] 2023-05-02 21:29:56,499 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2499.0 txn/sec
+[INFO ] 2023-05-02 21:29:57,499 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2471.0 txn/sec
+[INFO ] 2023-05-02 21:29:58,499 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2503.0 txn/sec
+[INFO ] 2023-05-02 21:29:59,500 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2399.0 txn/sec
+[INFO ] 2023-05-02 21:30:00,500 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2491.0 txn/sec
+[INFO ] 2023-05-02 21:30:01,501 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2516.0 txn/sec
+[INFO ] 2023-05-02 21:30:02,501 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2507.0 txn/sec
+[INFO ] 2023-05-02 21:30:03,501 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2511.0 txn/sec
+[INFO ] 2023-05-02 21:30:04,502 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2509.0 txn/sec
+[INFO ] 2023-05-02 21:30:05,502 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2507.0 txn/sec
+[INFO ] 2023-05-02 21:30:06,503 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2520.0 txn/sec
+[INFO ] 2023-05-02 21:30:07,503 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2391.0 txn/sec
+[INFO ] 2023-05-02 21:30:08,503 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2516.0 txn/sec
+[INFO ] 2023-05-02 21:30:09,504 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2503.0 txn/sec
+[INFO ] 2023-05-02 21:30:10,504 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2496.0 txn/sec
+[INFO ] 2023-05-02 21:30:11,505 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2511.0 txn/sec
+[INFO ] 2023-05-02 21:30:12,505 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2511.0 txn/sec
+[INFO ] 2023-05-02 21:30:13,506 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2501.0 txn/sec
+[INFO ] 2023-05-02 21:30:14,506 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2511.0 txn/sec
+[INFO ] 2023-05-02 21:30:15,506 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2496.0 txn/sec
+[INFO ] 2023-05-02 21:30:16,507 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2401.0 txn/sec
+[INFO ] 2023-05-02 21:30:17,507 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2502.0 txn/sec
+[INFO ] 2023-05-02 21:30:18,508 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2521.0 txn/sec
+[INFO ] 2023-05-02 21:30:19,508 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2472.0 txn/sec
+[INFO ] 2023-05-02 21:30:20,508 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2521.0 txn/sec
+[INFO ] 2023-05-02 21:30:21,509 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2478.0 txn/sec
+[INFO ] 2023-05-02 21:30:22,509 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2498.0 txn/sec
+[INFO ] 2023-05-02 21:30:23,509 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2505.0 txn/sec
+[INFO ] 2023-05-02 21:30:24,510 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2401.0 txn/sec
+[INFO ] 2023-05-02 21:30:25,510 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2448.0 txn/sec
+[INFO ] 2023-05-02 21:30:26,511 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2504.0 txn/sec
+[INFO ] 2023-05-02 21:30:27,511 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2514.0 txn/sec
+[INFO ] 2023-05-02 21:30:28,511 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2514.0 txn/sec
+[INFO ] 2023-05-02 21:30:29,512 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2506.0 txn/sec
+[INFO ] 2023-05-02 21:30:30,512 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2520.0 txn/sec
+[INFO ] 2023-05-02 21:30:31,513 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2523.0 txn/sec
+[INFO ] 2023-05-02 21:30:32,513 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2387.0 txn/sec
+[INFO ] 2023-05-02 21:30:33,513 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2506.0 txn/sec
+[INFO ] 2023-05-02 21:30:34,514 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2477.0 txn/sec
+[INFO ] 2023-05-02 21:30:35,514 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2522.0 txn/sec
+[INFO ] 2023-05-02 21:30:36,514 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2510.0 txn/sec
+[INFO ] 2023-05-02 21:30:37,515 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2489.0 txn/sec
+[INFO ] 2023-05-02 21:30:38,515 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2510.0 txn/sec
+[INFO ] 2023-05-02 21:30:39,516 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2513.0 txn/sec
+[INFO ] 2023-05-02 21:30:40,516 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2442.0 txn/sec
+[INFO ] 2023-05-02 21:30:41,516 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2476.0 txn/sec
+[INFO ] 2023-05-02 21:30:42,517 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2499.0 txn/sec
+[INFO ] 2023-05-02 21:30:43,517 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2491.0 txn/sec
+[INFO ] 2023-05-02 21:30:44,517 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2519.0 txn/sec
+[INFO ] 2023-05-02 21:30:45,518 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2503.0 txn/sec
+[INFO ] 2023-05-02 21:30:46,518 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2518.0 txn/sec
+[INFO ] 2023-05-02 21:30:47,518 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2483.0 txn/sec
+[INFO ] 2023-05-02 21:30:48,519 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2078.0 txn/sec
+[WARN ] 2023-05-02 21:30:48,971 [HOTWorker<026>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 131 waits for ShareLock on transaction 478785; blocked by process 113; is_remote: false.
+Process 113 waits for ShareLock on transaction 478804; blocked by process 131; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (334,112) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 21:30:49,519 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1640.0 txn/sec
+[INFO ] 2023-05-02 21:30:50,520 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2401.0 txn/sec
+[INFO ] 2023-05-02 21:30:51,520 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2514.0 txn/sec
+[INFO ] 2023-05-02 21:30:52,520 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2488.0 txn/sec
+[INFO ] 2023-05-02 21:30:53,521 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2515.0 txn/sec
+[INFO ] 2023-05-02 21:30:54,521 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2513.0 txn/sec
+[INFO ] 2023-05-02 21:30:55,521 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1917.0 txn/sec
+[WARN ] 2023-05-02 21:30:55,907 [HOTWorker<008>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 113 waits for ShareLock on transaction 496899; blocked by process 128; is_remote: false.
+Process 128 waits for ShareLock on transaction 496891; blocked by process 113; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (198,67) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 21:30:56,522 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1636.0 txn/sec
+[INFO ] 2023-05-02 21:30:57,522 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2492.0 txn/sec
+[INFO ] 2023-05-02 21:30:58,522 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2360.0 txn/sec
+[INFO ] 2023-05-02 21:30:59,523 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2519.0 txn/sec
+[INFO ] 2023-05-02 21:31:00,523 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2528.0 txn/sec
+[INFO ] 2023-05-02 21:31:01,523 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2512.0 txn/sec
+[INFO ] 2023-05-02 21:31:02,524 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2509.0 txn/sec
+[INFO ] 2023-05-02 21:31:03,524 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2500.0 txn/sec
+[INFO ] 2023-05-02 21:31:04,524 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2492.0 txn/sec
+[INFO ] 2023-05-02 21:31:05,525 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2519.0 txn/sec
+[INFO ] 2023-05-02 21:31:06,525 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2385.0 txn/sec
+[INFO ] 2023-05-02 21:31:07,525 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2475.0 txn/sec
+[INFO ] 2023-05-02 21:31:08,526 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2505.0 txn/sec
+[INFO ] 2023-05-02 21:31:09,526 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2505.0 txn/sec
+[INFO ] 2023-05-02 21:31:10,526 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2497.0 txn/sec
+[INFO ] 2023-05-02 21:31:11,527 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2447.0 txn/sec
+[INFO ] 2023-05-02 21:31:12,527 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2502.0 txn/sec
+[INFO ] 2023-05-02 21:31:13,527 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2507.0 txn/sec
+[INFO ] 2023-05-02 21:31:14,528 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2529.0 txn/sec
+[INFO ] 2023-05-02 21:31:15,528 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2402.0 txn/sec
+[INFO ] 2023-05-02 21:31:16,528 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2455.0 txn/sec
+[INFO ] 2023-05-02 21:31:17,529 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2503.0 txn/sec
+[INFO ] 2023-05-02 21:31:18,529 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2375.0 txn/sec
+[INFO ] 2023-05-02 21:31:19,529 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2511.0 txn/sec
+[INFO ] 2023-05-02 21:31:20,530 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2504.0 txn/sec
+[INFO ] 2023-05-02 21:31:21,530 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2492.0 txn/sec
+[INFO ] 2023-05-02 21:31:22,530 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2511.0 txn/sec
+[INFO ] 2023-05-02 21:31:23,531 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2409.0 txn/sec
+[INFO ] 2023-05-02 21:31:24,531 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2508.0 txn/sec
+[INFO ] 2023-05-02 21:31:25,531 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2456.0 txn/sec
+[WARN ] 2023-05-02 21:31:26,280 [HOTWorker<005>]  com.oltpbenchmark.api.Worker doWork - SQLException occurred during [com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01] and will not be retried... sql state [40P01], error code [0].
+org.postgresql.util.PSQLException: ERROR: deadlock detected
+  Detail: Process 110 waits for ShareLock on transaction 579621; blocked by process 109; is_remote: false.
+Process 109 waits for ShareLock on transaction 579609; blocked by process 110; is_remote: false.
+  Hint: See server log for query details.
+  Where: while updating tuple (357,51) in relation "usertable_1"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:181)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:149)
+	at com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite.run(ReadModifyWrite.java:63)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.readModifyWrite(HOTWorker.java:97)
+	at com.oltpbenchmark.benchmarks.hot.HOTWorker.executeWork(HOTWorker.java:75)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:416)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2023-05-02 21:31:26,532 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 1763.0 txn/sec
+[INFO ] 2023-05-02 21:31:27,532 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2523.0 txn/sec
+[INFO ] 2023-05-02 21:31:28,532 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2404.0 txn/sec
+[INFO ] 2023-05-02 21:31:29,533 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2043.0 txn/sec
+[INFO ] 2023-05-02 21:31:30,533 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 912.0 txn/sec
+[INFO ] 2023-05-02 21:31:31,533 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2475.0 txn/sec
+[INFO ] 2023-05-02 21:31:32,534 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2399.0 txn/sec
+[INFO ] 2023-05-02 21:31:33,534 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2520.0 txn/sec
+[INFO ] 2023-05-02 21:31:34,534 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2513.0 txn/sec
+[INFO ] 2023-05-02 21:31:35,535 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2468.0 txn/sec
+[INFO ] 2023-05-02 21:31:36,535 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2452.0 txn/sec
+[INFO ] 2023-05-02 21:31:37,535 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2509.0 txn/sec
+[INFO ] 2023-05-02 21:31:38,536 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2509.0 txn/sec
+[INFO ] 2023-05-02 21:31:39,536 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2542.0 txn/sec
+[INFO ] 2023-05-02 21:31:40,536 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2492.0 txn/sec
+[INFO ] 2023-05-02 21:31:41,537 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2423.0 txn/sec
+[INFO ] 2023-05-02 21:31:42,537 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2517.0 txn/sec
+[INFO ] 2023-05-02 21:31:43,537 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2475.0 txn/sec
+[INFO ] 2023-05-02 21:31:44,538 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2408.0 txn/sec
+[INFO ] 2023-05-02 21:31:45,538 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2043.0 txn/sec
+[INFO ] 2023-05-02 21:31:46,538 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 559.0 txn/sec
+[INFO ] 2023-05-02 21:31:47,539 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2477.0 txn/sec
+[INFO ] 2023-05-02 21:31:48,539 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2494.0 txn/sec
+[INFO ] 2023-05-02 21:31:49,502 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mTERMINATE[0;0m :: Waiting for all terminals to finish ..
+[INFO ] 2023-05-02 21:31:49,524 [Thread-33]  com.oltpbenchmark.ThreadBench run - Starting WatchDogThread
+[INFO ] 2023-05-02 21:31:49,540 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 2031.0 txn/sec
+[INFO ] 2023-05-02 21:31:49,755 [main]  com.oltpbenchmark.DBWorkload runWorkload - ======================================================================
+[INFO ] 2023-05-02 21:31:49,756 [main]  com.oltpbenchmark.DBWorkload runWorkload - Rate limited reqs/s: Results(nanoSeconds=120000758519, measuredRequests=289401) = 2411.65975591878 requests/sec (throughput), 2408.82644049481 requests/sec (goodput)
+[INFO ] 2023-05-02 21:31:49,818 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output Raw data into file: hot_2023-05-02_21-31-49.raw.csv
+[INFO ] 2023-05-02 21:31:50,540 [Thread-32]  com.oltpbenchmark.ThreadBench run - Throughput: 0.0 txn/sec
+[INFO ] 2023-05-02 21:31:50,935 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output samples into file: hot_2023-05-02_21-31-49.samples.csv
+[INFO ] 2023-05-02 21:31:51,009 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output summary data into file: hot_2023-05-02_21-31-49.summary.json
+[INFO ] 2023-05-02 21:31:51,016 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS parameters into file: hot_2023-05-02_21-31-49.params.json
+[INFO ] 2023-05-02 21:31:51,023 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS metrics into file: hot_2023-05-02_21-31-49.metrics.json
+[INFO ] 2023-05-02 21:31:51,028 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output benchmark config into file: hot_2023-05-02_21-31-49.config.xml
+[INFO ] 2023-05-02 21:31:51,077 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output results into file: hot_2023-05-02_21-31-49.results.csv with window size 5
+[INFO ] 2023-05-02 21:31:51,267 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================
+[INFO ] 2023-05-02 21:31:51,267 [main]  com.oltpbenchmark.DBWorkload writeHistograms - Workload Histograms:
+
+[0;1mCompleted Transactions:[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [289061] ********************************************************************************
+com.oltpbenchmark.benchmarks.hot.procedures.RMWLocalRORemote/02                  [     0] 
+
+[0;1mAborted Transactions:[0;0m
+<EMPTY>
+
+[0;1mRejected Transactions (Server Retry):[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [34846] ********************************************************************************
+
+[0;1mRejected Transactions (Retry Different):[0;0m
+<EMPTY>
+
+[0;1mUnexpected SQL Errors:[0;0m
+com.oltpbenchmark.benchmarks.hot.procedures.ReadModifyWrite/01                   [   3] ********************************************************************************
+
+[0;1mUnknown Status Transactions:[0;0m
+<EMPTY>
+
+
+[INFO ] 2023-05-02 21:31:51,267 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================
+[INFO ] 2023-05-02 21:31:51,270 [main]  com.oltpbenchmark.DBWorkload main - Histograms JSON Data: results/histograms.json

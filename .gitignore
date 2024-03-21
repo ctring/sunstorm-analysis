@@ -9,5 +9,6 @@
 !common.py
 !requirements.txt
 !.gitignore
+!README.md
 
 venv/

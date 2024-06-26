@@ -216,7 +216,7 @@ def collect_result_region(region_path: Path, metadata: dict[str, Any]):
                             ].sum(),
                             f"other_aborts.{proc}": proc_df[
                                 (proc_df.deadlock == False)
-                                & (proc_df.validation == "null")
+                                & (proc_df.validation.isna())
                             ]["count"].sum(),
                             f"deadlock.{proc}": proc_df[proc_df.deadlock == True][
                                 "count"
@@ -229,7 +229,7 @@ def collect_result_region(region_path: Path, metadata: dict[str, Any]):
                         "ood_table": df[df.validation == "table"]["count"].sum(),
                         "ood_tuple": df[df.validation == "tuple"]["count"].sum(),
                         "other_aborts": df[
-                            (df.deadlock == False) & (df.validation == "null")
+                            (df.deadlock == False) & (df.validation.isna())
                         ]["count"].sum(),
                         "deadlock": df[df.deadlock == True]["count"].sum(),
                     }

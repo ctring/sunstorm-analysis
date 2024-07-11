@@ -147,37 +147,39 @@ def collect_result_region(region_path: Path, metadata: dict[str, Any]):
                             }
                         )
 
+            # NOTE: this is no longer needed since we use raw file to calculate the quantiles
+            #       but still keeping it here just in case
             # Parse procedure files
-            for proc in procedures:
-                if file.name.endswith(f"{proc}.csv"):
-                    df = pd.read_csv(file)
-                    df = df[df["Average Latency (millisecond)"] > 0].median()
-                    record[f"throughput.{proc}"] = df["Throughput (requests/second)"]
-                    if f"avg.{proc}" not in record:
-                        record.update(
-                            {
-                                f"avg.{proc}": df["Average Latency (millisecond)"],
-                                f"p0.{proc}": df["Minimum Latency (millisecond)"],
-                                f"p25.{proc}": df[
-                                    "25th Percentile Latency (millisecond)"
-                                ],
-                                f"p50.{proc}": df["Median Latency (millisecond)"],
-                                f"p75.{proc}": df[
-                                    "75th Percentile Latency (millisecond)"
-                                ],
-                                f"p90.{proc}": df[
-                                    "90th Percentile Latency (millisecond)"
-                                ],
-                                f"p95.{proc}": df[
-                                    "95th Percentile Latency (millisecond)"
-                                ],
-                                f"p99.{proc}": df[
-                                    "99th Percentile Latency (millisecond)"
-                                ],
-                                f"p100.{proc}": df["Maximum Latency (millisecond)"],
-                            }
-                        )
-                    break
+            # for proc in procedures:
+            #     if file.name.endswith(f"{proc}.csv"):
+            #         df = pd.read_csv(file)
+            #         df = df[df["Average Latency (millisecond)"] > 0].median()
+            #         record[f"throughput.{proc}"] = df["Throughput (requests/second)"]
+            #         if f"avg.{proc}" not in record:
+            #             record.update(
+            #                 {
+            #                     f"avg.{proc}": df["Average Latency (millisecond)"],
+            #                     f"p0.{proc}": df["Minimum Latency (millisecond)"],
+            #                     f"p25.{proc}": df[
+            #                         "25th Percentile Latency (millisecond)"
+            #                     ],
+            #                     f"p50.{proc}": df["Median Latency (millisecond)"],
+            #                     f"p75.{proc}": df[
+            #                         "75th Percentile Latency (millisecond)"
+            #                     ],
+            #                     f"p90.{proc}": df[
+            #                         "90th Percentile Latency (millisecond)"
+            #                     ],
+            #                     f"p95.{proc}": df[
+            #                         "95th Percentile Latency (millisecond)"
+            #                     ],
+            #                     f"p99.{proc}": df[
+            #                         "99th Percentile Latency (millisecond)"
+            #                     ],
+            #                     f"p100.{proc}": df["Maximum Latency (millisecond)"],
+            #                 }
+            #             )
+            #         break
 
             # Parse raw file
             if file.name.endswith("raw.csv"):

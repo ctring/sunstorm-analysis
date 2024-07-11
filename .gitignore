@@ -6,6 +6,9 @@
 !ycsb.ipynb
 !tpcc.ipynb
 !scalability.ipynb
+!combined.ipynb
+!mixed.ipynb
+!read-only.ipynb
 !common.py
 !requirements.txt
 !.gitignore

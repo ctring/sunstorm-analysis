@@ -260,8 +260,8 @@ def normalize_region_name(df):
     df["region"].replace(
         {
             "1-us-east-1": "1-us-east-1-0",
-            "2-us-east-2": "2-us-east-2-0",
-            "3-us-west-1": "3-us-west-1-0",
+            "2-eu-west-1": "2-eu-west-1-0",
+            "3-ap-northeast-1": "3-ap-northeast-1-0",
         },
         inplace=True,
     )

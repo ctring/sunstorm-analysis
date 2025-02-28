@@ -222,8 +222,7 @@ def collect_result_region(region_path: Path, metadata: dict[str, Any]):
                                 "count"
                             ].sum(),
                             f"other_aborts.{proc}": proc_df[
-                                (proc_df.deadlock == False)
-                                & (proc_df.validation.isna())
+                                (proc_df.deadlock is False) & (proc_df.validation.isna())
                             ]["count"].sum(),
                             f"deadlock.{proc}": proc_df[proc_df.deadlock == True][
                                 "count"
